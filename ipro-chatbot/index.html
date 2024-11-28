@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XDroid Electronics Assistant</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #2d2d2d;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .chat-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .website-link {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .website-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .service-tabs {
+            display: flex;
+            background-color: #222;
+            padding: 10px;
+            gap: 10px;
+            overflow-x: auto;
+        }
+        .service-tab {
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border: none;
+        }
+        .service-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #2d2d2d;
+        }
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .user-message {
+            align-items: flex-end;
+        }
+        .bot-message {
+            align-items: flex-start;
+        }
+        .message-content {
+            padding: 12px 18px;
+            border-radius: 20px;
+            max-width: 70%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .user-message .message-content {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+        .bot-message .message-content {
+            background: #3d3d3d;
+            color: #fff;
+            border-left: 4px solid #1e3c72;
+        }
+        .input-area {
+            padding: 20px;
+            background-color: #222;
+            display: flex;
+            gap: 10px;
+        }
+        #user-input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background-color: #3d3d3d;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        #user-input:focus {
+            box-shadow: 0 0 0 2px #1e3c72;
+        }
+        button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(30,60,114,0.3);
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d2d2d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e3c72;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2a5298;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>XDroid Electronics Assistant</h2>
+            <a href="https://sites.google.com/view/projectxdroid/home?authuser=0" target="_blank" class="website-link">Visit our website</a>
+        </div>
+        <div class="service-tabs">
+            <button class="service-tab" onclick="window.selectCategory('mobile')">📱 Mobile</button>
+            <button class="service-tab" onclick="window.selectCategory('mac')">💻 Mac</button>
+            <button class="service-tab" onclick="window.selectCategory('web')">🌐 Web</button>
+            <button class="service-tab" onclick="window.selectCategory('marketing')">📊 Marketing</button>
+            <button class="service-tab" onclick="window.selectCategory('it')">🔧 IT</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+        </div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
